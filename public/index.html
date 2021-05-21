@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>WebSockets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="log"></div>
+
+    <form id="message">
+        <input id="body" size="50">
+    </form>
+
+    <script src="lib/jquery.js"></script>
+    <script src="client.js"></script>
+    <script>
+        const client = new IOClient();
+
+        $("#message").submit(function () {
+            const message = $("#body").val()
+            client.publish({ message })
+            this.reset()
+            return false
+        })
+
+        client.subscribe((data) => {
+            const p = $('<p>').text(data.message)
+            $("#log").append(p)
+        })
+
+        $("#body").focus()
+    </script>
+</body>
+
+</html>

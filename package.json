@@ -1,0 +1,22 @@
+{
+  "name": "realtime",
+  "version": "0.1.0",
+  "description": "Websockets client and server",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "websocket",
+    "longpoll"
+  ],
+  "author": "James Abney",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.2.3",
+    "ws": "^0.4.32"
+  },
+  "devDependencies": {
+    "nodemon": "^1.2.1"
+  }
+}
